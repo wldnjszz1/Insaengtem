@@ -40,6 +40,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'Post.apps.PostConfig',
     'Auth.apps.AuthConfig',
+
+    'rest_framework.authtoken',
+    'rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'Auth.IstUser'
+SITE_ID = 1
+ACCOUNT_LOGOUT_ON_GET = True

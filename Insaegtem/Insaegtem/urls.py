@@ -1,5 +1,4 @@
 """Insaegtem URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
@@ -14,11 +13,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('users/',include('Auth.urls')),
 ]

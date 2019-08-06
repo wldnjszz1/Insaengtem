@@ -5,6 +5,6 @@ from .models.post import Post
 
 # Register your models here.
 
-admin.register(BookMark)
-admin.register(Post)
-admin.register(RecentlyViewd)
+admin.site.register(BookMark)
+admin.site.register(Post)
+admin.site.register(RecentlyViewd)

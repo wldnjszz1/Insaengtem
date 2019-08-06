@@ -2,7 +2,7 @@ from rest_framework import serializers
 from ..models.recentlyviewd import RecentlyViewd
 
 
-class RecentlyViewd(serializers.ModelSerializer):
+class RecentlyViewdSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecentlyViewd
-        feilds = '__all__'
+        fields = '__all__'

@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from rest_framework import status
 from django.core import serializers
 from Auth.models import IstUser
+from rest_framework.decorators import api_view
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -49,75 +50,65 @@ class PostViewSet(viewsets.ModelViewSet):
         return HttpResponse(serialized_obj, content_type="application/json")
 
     # TO DO: 유저만 게시물을 삭제, 수정할 수 있게 하기
-    #def destroy(self, request, *args, **kwargs):
+    # def destroy(self, request, *args, **kwargs):
 
     # TO DO: 태그가 트루인 포스트만 보여주기
-    def search_tag(self, request):
-        tag1 = request.data.get("1")
-        tag2 = request.data.get("2")
-        tag3 = request.data.get("3")
-        tag4 = request.data.get("4")
-        tag5 = request.data.get("5")
-        tag6 = request.data.get("6")
-        tag7 = request.data.get("7")
-        tag8 = request.data.get("8")
-        tag9 = request.data.get("9")
-        tag10 = request.data.get("10")
 
-        if tag1:
-            queryset = self.get_queryset()
+
+@api_view(['GET'])
+def search_tag(request, tags):
+    if request.method == 'GET':
+        tag = tags
+
+        if tag == '1':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category1=True)
-            serializer = self.get_serializer(queryset, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag2:
-            queryset = self.get_queryset()
+            serializer = PostSerializer(queryset, many=True)
+            return Response(serializer.data)
+        if tag == '2':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category2=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag3:
-            queryset = self.get_queryset()
+        if tag == '3':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category3=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag4:
-            queryset = self.get_queryset()
+        if tag == '4':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category4=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag5:
-            queryset = self.get_queryset()
+        if tag == '5':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category5=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag6:
-            queryset = self.get_queryset()
+        if tag == '6':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category6=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag7:
-            queryset = self.get_queryset()
+        if tag == '7':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category7=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag8:
-            queryset = self.get_queryset()
+        if tag == '8':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category8=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag9:
-            queryset = self.get_queryset()
+        if tag == '9':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category9=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        if tag10:
-            queryset = self.get_queryset()
+        if tag == '10':
+            queryset = Post.objects.all()
             queryset = queryset.filter(category10=True)
-            serializer = self.get_serializer(queryset, many=True)
+            serializer = PostSerializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-
-
 
     # TO DO: 특정 유저가 쓴 글만 보여주기
-
-
-

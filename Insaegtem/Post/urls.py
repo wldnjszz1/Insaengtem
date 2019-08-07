@@ -21,7 +21,6 @@ urlpatterns = [
     path('', include(router.urls)),
 ]
 
-
-urlpatterns = [
-    path('tags/<tags>', search_tag),
-]
+# urlpatterns = [
+#     path('tags/<tags>', search_tag),
+# ]

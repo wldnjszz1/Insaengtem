@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.parsers import MultiPartParser, JSONParser
 from rest_framework.viewsets import ModelViewSet
 from ..serializers.post import PostSerializer
 from ..models.post import Post
@@ -12,6 +13,7 @@ from rest_framework.decorators import api_view
 
 
 class PostViewSet(viewsets.ModelViewSet):
+    parser_classes = (MultiPartParser, JSONParser)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 

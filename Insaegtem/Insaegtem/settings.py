@@ -130,6 +130,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 미디어 추가
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
 AUTH_USER_MODEL = 'Auth.IstUser'
 SITE_ID = 1
 ACCOUNT_LOGOUT_ON_GET = True

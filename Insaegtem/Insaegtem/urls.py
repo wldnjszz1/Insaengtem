@@ -17,6 +17,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from Post.views.post import search_tag
 
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('users/',include('Auth.urls')),
     path('posts/', include('Post.urls')),
-] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('tags/<tags>', search_tag),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

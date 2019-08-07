@@ -3,7 +3,7 @@ from django.db import models
 
 class Post(models.Model):
     user_id = models.ForeignKey('Auth.IstUser', null=False, related_name="posts", on_delete=models.CASCADE)
-    image = models.ImageField(default='', null=False)
+    image = models.ImageField(null=False) #default='../../media/image.jpg',
     description = models.TextField()
     category1 = models.BooleanField(null=True)
     category2 = models.BooleanField(null=True)

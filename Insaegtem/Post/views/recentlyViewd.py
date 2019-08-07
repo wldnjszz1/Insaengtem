@@ -13,3 +13,5 @@ from rest_framework import serializers
 class RecentlyViewdViewSet(viewsets.ModelViewSet):
     queryset = RecentlyViewd.objects.all()
     serializer_class = RecentlyViewdSerializer
+
+

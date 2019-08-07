@@ -16,10 +16,9 @@ class BookMarkViewSet(viewsets.ModelViewSet):
     serializer_class = BookMarkSerializer
 
     def list(self, request, *args, **kwargs):
-        bookmark_user_id = request.data.get("user_id")
 
         queryset = self.get_queryset()
-        queryset = queryset.filter(user_id=bookmark_user_id)
+        queryset = queryset.filter(user_id=request.user)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

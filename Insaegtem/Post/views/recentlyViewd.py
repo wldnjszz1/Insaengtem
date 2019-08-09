@@ -49,22 +49,6 @@ class RecentlyViewdViewSet(viewsets.ModelViewSet):
                 earliest = RecentlyViewd.objects.earliest('lastTime')
                 earliest.delete()
                 RecentlyViewd.objects.create(user_id=user_id, post_id=post_id)
-        # if count != 0:
-        #     for i in getAll:
-        #         print(i)
-        #         if post_id == i.post_id:
-        #             alreadyViewd = i.post_id
-        #             alreadyViewd.delete()
-        #             RecentlyViewd.objects.create(user_id=user_id, post_id=post_id)
-        #         else:
-        #             if count < 5:
-        #                 RecentlyViewd.objects.create(user_id=user_id, post_id=post_id)
-        #             else:
-        #                 earliest = RecentlyViewd.objects.earliest('lastTime')
-        #                 earliest.delete()
-        #                 RecentlyViewd.objects.create(user_id=user_id, post_id=post_id)
-        # else:
-        #     RecentlyViewd.objects.create(user_id=user_id, post_id=post_id)
 
         serialized_obj = RecentlyViewd.objects.all()
         return HttpResponse(serialized_obj, content_type="application/json")
